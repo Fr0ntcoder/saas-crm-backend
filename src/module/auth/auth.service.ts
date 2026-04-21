@@ -10,8 +10,15 @@ import {
 import { HttpError } from '../../lib/error'
 import { comparePassword, hashPassword } from '../../lib/password'
 import { prisma } from '../../lib/prisma'
-import { AuthProfile } from '../../types'
+
+import { Role } from '@prisma/client'
 import { LoginDto, RegisterDto } from './auth.dto'
+
+export type AuthProfile = {
+	id: string
+	companyId: string
+	role: Role
+}
 
 const toAuthPayload = (profile: AuthProfile) => ({
 	sub: profile.id,

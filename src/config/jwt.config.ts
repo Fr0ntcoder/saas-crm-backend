@@ -1,7 +1,7 @@
 import jwt, { type SignOptions } from 'jsonwebtoken'
 import { parseDurationMs } from '../lib/jwt'
 
-import { JwtPayload } from '../types'
+import { JwtPayload } from '../types/other'
 import { env } from './env.config'
 
 export const toSignOptions = (expiresIn: string): SignOptions => ({

@@ -13,7 +13,7 @@ enum Role {
 
 enum ClientStatus {
   ACTIVE
-  CHURN_RISK @map("churn_risk")
+  CHURN_RISK
   NEW
 }
 
@@ -34,7 +34,7 @@ enum DealSource {
 
 enum TaskStatus {
   TODO
-  IN_PROGRESS @map("in_progress")
+  IN_PROGRESS
 }
 
 enum TaskPriority {
@@ -170,7 +170,7 @@ model Deal {
 model Task {
   id        String       @id @default(ulid()) @db.Uuid
   title     String
-  status    TaskStatus
+  status    TaskStatus   @default(TODO)
   priority  TaskPriority
   dueDate   DateTime     @map("due_date")
   company   Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
