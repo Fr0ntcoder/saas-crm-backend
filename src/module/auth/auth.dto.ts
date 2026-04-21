@@ -1,6 +1,6 @@
 import z from 'zod'
 
-const registerDto = z.object({
+export const registerDto = z.object({
 	email: z.email(),
 	password: z
 		.string()
@@ -11,14 +11,14 @@ const registerDto = z.object({
 	company: z.string().optional()
 })
 
-const loginDto = z.object({
+export const loginDto = z.object({
 	email: z.email(),
 	password: z
 		.string()
 		.min(6, { message: 'Пароль должен содержать не менее 6 символов' })
 })
 
-const refreshDto = z.object({
+export const refreshDto = z.object({
 	refreshToken: z.string().min(10).optional()
 })
 
