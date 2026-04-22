@@ -15,3 +15,9 @@ export type ClientQuery = {
 	sortBy?: 'createdAt' | 'updatedAt' | 'name' | 'monthlyValue'
 	sortOrder?: 'asc' | 'desc'
 }
+
+export type Pagination = {
+	page: number
+	limit: number
+	skip: number
+}

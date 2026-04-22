@@ -116,7 +116,7 @@ model Profile {
 }
 
 model Client {
-  id           String       @id @default(ulid()) @db.Uuid
+  id           String       @id @default(uuid()) @db.Uuid
   name         String
   industry     String
   contactEmail String       @map("contact_email")
@@ -142,7 +142,7 @@ model Client {
 }
 
 model Deal {
-  id        String     @id @default(ulid()) @db.Uuid
+  id        String     @id @default(uuid()) @db.Uuid
   title     String
   stage     DealStage
   amount    Decimal    @db.Decimal(12, 2)
@@ -168,7 +168,7 @@ model Deal {
 }
 
 model Task {
-  id        String       @id @default(ulid()) @db.Uuid
+  id        String       @id @default(uuid()) @db.Uuid
   title     String
   status    TaskStatus   @default(TODO)
   priority  TaskPriority
@@ -196,7 +196,7 @@ model Task {
 }
 
 model Invoice {
-  id        String        @id @default(ulid()) @db.Uuid
+  id        String        @id @default(uuid()) @db.Uuid
   amount    Decimal       @db.Decimal(12, 2)
   status    InvoiceStatus
   dueDate   DateTime      @map("due_date")

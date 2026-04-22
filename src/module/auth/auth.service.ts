@@ -22,7 +22,7 @@ export type AuthProfile = {
 
 const toAuthPayload = (profile: AuthProfile) => ({
 	sub: profile.id,
-	companyId: profile.id,
+	companyId: profile.companyId,
 	role: profile.role
 })
 
