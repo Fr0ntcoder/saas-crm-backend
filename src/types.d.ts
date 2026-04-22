@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client'
 import 'express'
 
 declare global {
@@ -6,7 +7,7 @@ declare global {
 			user?: {
 				id: string
 				companyId: string
-				role: 'admin' | 'manager'
+				role: Role
 			}
 			tenantCompanyId?: string
 			pagination?: {

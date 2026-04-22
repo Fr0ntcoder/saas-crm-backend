@@ -1,4 +1,4 @@
-import { ClientStatus, Role } from '@prisma/client'
+import { ClientStatus } from '@prisma/client'
 import z from 'zod'
 
 export const createClientDto = z.object({
@@ -21,7 +21,7 @@ export const updateClientDto = createClientDto
 
 export const listClientsDto = z.object({
 	search: z.string().optional(),
-	status: z.enum(Role).optional(),
+	status: z.enum(ClientStatus).optional(),
 	managerId: z.uuid().optional(),
 	dateFrom: z.iso.datetime().optional(),
 	dateTo: z.iso.datetime().optional(),
