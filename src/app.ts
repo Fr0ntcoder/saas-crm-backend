@@ -12,6 +12,7 @@ import clientsRouter from './module/clients/clients.routes'
 import companyRouter from './module/companies/companies.router'
 import dealsRouter from './module/deals/deals.routes'
 import invoicesRouter from './module/invoices/invoices.routes'
+import tasksRouter from './module/tasks/tasks.routes'
 export const app = express()
 
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }))
@@ -41,5 +42,12 @@ app.use(
 	tenantMiddleware,
 	paginationMiddleware,
 	invoicesRouter
+)
+app.use(
+	'/api/tasks',
+	authMiddleware,
+	tenantMiddleware,
+	paginationMiddleware,
+	tasksRouter
 )
 app.use(errorHandler)
