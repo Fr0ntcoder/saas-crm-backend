@@ -27,7 +27,7 @@ const dealToApi = (item: Deal) => ({
 	createdAt: item.createdAt.toISOString()
 })
 
-export const dealService = {
+export const dealsService = {
 	async create(params: {
 		data: CreateDealDto
 		user: {
@@ -151,7 +151,7 @@ export const dealService = {
 			total
 		}
 	},
-	async getByaId(params: {
+	async getById(params: {
 		id: string
 		user: {
 			id: string
@@ -183,11 +183,11 @@ export const dealService = {
 	async update(params: {
 		id: string
 		payload: UpdateDealDto
-		user: { id: string; role: 'admin' | 'manager' }
+		user: { id: string; role: Role }
 		companyId: string
 	}) {
 		const { id, payload, user, companyId } = params
-		const isAdmin = user.role === 'admin'
+		const isAdmin = user.role === 'ADMIN'
 
 		const existing = await prisma.deal.findFirst({
 			where: {

@@ -10,7 +10,7 @@ export const createDealDto = z.object({
 	managerId: z.uuid().optional()
 })
 
-export const updateDeadDto = createDealDto
+export const updateDealDto = createDealDto
 	.partial()
 	.refine(data => Object.keys(data).length > 0, {
 		message: 'Введите хотя бы одно поле'
@@ -29,5 +29,5 @@ export const listDealDto = z.object({
 })
 
 export type CreateDealDto = z.infer<typeof createDealDto>
-export type UpdateDealDto = z.infer<typeof updateDeadDto>
+export type UpdateDealDto = z.infer<typeof updateDealDto>
 export type ListDealDto = z.infer<typeof listDealDto>

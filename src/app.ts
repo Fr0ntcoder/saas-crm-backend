@@ -10,6 +10,7 @@ import { tenantMiddleware } from './middlewares/tenant'
 import authRouter from './module/auth/auth.routes'
 import clientsRouter from './module/clients/clients.routes'
 import companyRouter from './module/companies/companies.router'
+import dealsRouter from './module/deals/deals.routes'
 export const app = express()
 
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }))
@@ -26,4 +27,11 @@ app.use(
 	clientsRouter
 )
 app.use('/api/companies', authMiddleware, tenantMiddleware, companyRouter)
+app.use(
+	'/api/deals',
+	authMiddleware,
+	tenantMiddleware,
+	paginationMiddleware,
+	dealsRouter
+)
 app.use(errorHandler)
