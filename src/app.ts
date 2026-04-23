@@ -9,6 +9,7 @@ import { paginationMiddleware } from './middlewares/pagination'
 import { tenantMiddleware } from './middlewares/tenant'
 import authRouter from './module/auth/auth.routes'
 import clientsRouter from './module/clients/clients.routes'
+import companyRouter from './module/companies/companies.router'
 export const app = express()
 
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }))
@@ -24,4 +25,5 @@ app.use(
 	paginationMiddleware,
 	clientsRouter
 )
+app.use('/api/companies', authMiddleware, tenantMiddleware, companyRouter)
 app.use(errorHandler)
